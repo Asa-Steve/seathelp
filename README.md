@@ -1,16 +1,30 @@
-# React + Vite
+# SeatHelp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SeatHelp is a React-based web application designed to help users access and manage seat-related support and assistance.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Built with React
+- Clean and responsive UI
+- Component-based architecture
+- Easy to extend and maintain
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript (ES6+)
+- CSS
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/Asa-Steve/seathelp.git
+cd seathelp
+npm install
+
+## ▶ Running the Project
+Start the development server:
+- npm run dev
+```
