@@ -11,8 +11,17 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
+import Tags from "@/components/ui/Tags";
 
-export function CardModal({ avatar, initials, title, desc, children, status }) {
+export function CardModal({
+  avatar,
+  initials,
+  title,
+  desc,
+  children,
+  status,
+  data,
+}) {
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
@@ -21,6 +30,14 @@ export function CardModal({ avatar, initials, title, desc, children, status }) {
       <DialogOverlay className="backdrop-blur-sm bg-black/40" />
 
       <DialogContent showCloseButton={false} className="bg-white">
+        <Tags
+          createdAt={data?.createdAt ?? null}
+          status={data?.status}
+          Uid={data?.id}
+          Hid={data?.id}
+          style={{ position: "absolute", left: "0.3%", top: "-33px" }}
+          size={12}
+        />
         <DialogHeader>
           <DialogTitle className={"flex items-center gap-3"}>
             <Avatar className="size-12 border border-gray-600 outline-1 outline-offset-2">

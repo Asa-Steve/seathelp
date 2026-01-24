@@ -23,8 +23,10 @@ Clone the repository and install dependencies:
 git clone https://github.com/Asa-Steve/seathelp.git
 cd seathelp
 npm install
+```
 
 ## ▶ Running the Project
+
 Start the development server:
+
 - npm run dev
-```

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Overlay from "@/components/ui/Overlay";
@@ -24,18 +24,41 @@ const AppLayout = () => {
           <div className="p-2 flex-1">
             <h2 className="font-bold text-2xl ps-4">SeatHelp</h2>
             <ul className="flex flex-col gap-2 h-fit min-h-80 p-2 mt-3">
-              <li className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center">
+              <Link
+                to="/"
+                className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center"
+              >
                 <Icon icon="hugeicons:home-09" width="25" height="25" />
                 Home
-              </li>
-              <li className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center">
+              </Link>
+              <Link
+                to="/chatroom"
+                className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center"
+              >
                 <Icon icon="akar-icons:chat-bubble" width="25" height="25" />
                 Chat Room
-              </li>
-              <li className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center">
+              </Link>
+              <Link
+                to="/profile"
+                className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center"
+              >
                 <Icon icon="streamline-plump:cog" width="25" height="25" />
-                Update Profile
-              </li>
+                Profile
+              </Link>
+              <Link
+                to="/leaderboard"
+                className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center"
+              >
+                <Icon icon="iconoir:leaderboard-star" width="25" height="25" />
+                Leaderboard
+              </Link>
+              <Link
+                to="/faqs"
+                className="border border-gray-50 bg-white rounded-lg p-2 cursor-pointer flex gap-2 items-center"
+              >
+                <Icon icon="wpf:faq" width="25" height="25" />
+                FAQs
+              </Link>
             </ul>
           </div>
           {/* bottom half */}
@@ -54,7 +77,7 @@ const AppLayout = () => {
             </li>
           </div>
         </aside>
-        <main className="bg-gray-100 lg:col-span-8 p-1 relative">
+        <main className="bg-gray-100 lg:col-span-8 p-1 relative h-[97%]">
           <Outlet />
 
           <Icon

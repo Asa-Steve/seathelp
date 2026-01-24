@@ -55,6 +55,9 @@ const helpDeskTickets = [
   },
 ];
 
+const minutesAgo = (mins) =>
+  new Date(Date.now() - mins * 60 * 1000).toISOString();
+
 const waitingList = [
   {
     id: "l2e_001",
@@ -66,7 +69,7 @@ const waitingList = [
       "I completed the JavaScript basics module, but my progress is still showing 60%. I refreshed and logged out but nothing changed.",
     status: "open",
     priority: "high",
-    createdAt: "2026-01-18T08:45:00Z",
+    createdAt: minutesAgo(2), // 2 minutes ago
   },
   {
     id: "l2e_002",
@@ -78,7 +81,7 @@ const waitingList = [
       "The Week 3 task shows a locked icon even though I completed the previous lessons.",
     status: "open",
     priority: "medium",
-    createdAt: "2026-01-18T10:12:00Z",
+    createdAt: minutesAgo(5), // 5 minutes ago
   },
   {
     id: "l2e_003",
@@ -90,7 +93,7 @@ const waitingList = [
       "I submitted my assignment and it was approved, but my earnings balance has not increased.",
     status: "open",
     priority: "high",
-    createdAt: "2026-01-18T14:30:00Z",
+    createdAt: minutesAgo(12),
   },
   {
     id: "l2e_004",
@@ -102,7 +105,7 @@ const waitingList = [
       "Most video lessons stop playing after a few seconds even with good internet connection.",
     status: "open",
     priority: "low",
-    createdAt: "2026-01-19T09:05:00Z",
+    createdAt: minutesAgo(18),
   },
   {
     id: "l2e_005",
@@ -114,7 +117,7 @@ const waitingList = [
       "I followed all instructions for the HTML task, but my score seems lower than expected.",
     status: "open",
     priority: "medium",
-    createdAt: "2026-01-19T11:40:00Z",
+    createdAt: minutesAgo(25),
   },
   {
     id: "l2e_006",
@@ -126,7 +129,7 @@ const waitingList = [
       "Whenever I try to upload my assignment file, I get an upload failed message.",
     status: "open",
     priority: "high",
-    createdAt: "2026-01-19T13:55:00Z",
+    createdAt: minutesAgo(32),
   },
   {
     id: "l2e_007",
@@ -138,7 +141,7 @@ const waitingList = [
       "My task status says reviewed, but I can’t see any feedback from the mentor.",
     status: "open",
     priority: "low",
-    createdAt: "2026-01-19T16:10:00Z",
+    createdAt: minutesAgo(45),
   },
   {
     id: "l2e_008",
@@ -150,7 +153,7 @@ const waitingList = [
       "I enrolled for the frontend track, but my dashboard shows data analysis courses.",
     status: "open",
     priority: "medium",
-    createdAt: "2026-01-20T08:20:00Z",
+    createdAt: minutesAgo(60),
   },
   {
     id: "l2e_009",
@@ -162,7 +165,7 @@ const waitingList = [
       "I completed all required modules but the certificate download button is disabled.",
     status: "open",
     priority: "high",
-    createdAt: "2026-01-20T12:00:00Z",
+    createdAt: minutesAgo(90),
   },
   {
     id: "l2e_010",
@@ -174,16 +177,16 @@ const waitingList = [
       "I get logged out of my account after a few minutes of inactivity, even while learning.",
     status: "open",
     priority: "low",
-    createdAt: "2026-01-20T15:45:00Z",
+    createdAt: minutesAgo(120),
   },
 ];
 
 const Queue = () => {
   return (
     <div className="h-[97vh] p-3 bg-white">
-      <h2 className="text-4xl font-light">SeatHelp Help Queue </h2>
+      <h2 className="text-4xl font-light">SeatHelp Queue </h2>
       <p className="text-gray-500">
-        A live help queue — everyone can see who’s next
+        A live help queue — where help comes in due time
       </p>
       <div className="flex gap-2 items-center mt-6 flex-col max-h-117.5 overflow-auto md:overflow-hidden md:flex-row scrollbar-hide">
         {/* Left Active/Current Queue */}
@@ -239,8 +242,13 @@ const Queue = () => {
                 initials={activeItem?.initials}
                 key={activeItem.id}
                 status={activeItem.status}
+                data={activeItem}
               >
-                <ActiveCard data={activeItem} fillColor="red-700" clampAt={3} />
+                <ActiveCard
+                  data={activeItem}
+                  fillColor="border-s-red-700"
+                  clampAt={3}
+                />
               </CardModal>
             ))}
           </div>
