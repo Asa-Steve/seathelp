@@ -183,12 +183,12 @@ const waitingList = [
 
 const Queue = () => {
   return (
-    <div className="h-[97vh] p-3 bg-white">
-      <h2 className="text-4xl font-light">SeatHelp Queue </h2>
-      <p className="text-gray-500">
+    <div className="h-full lg:h-[97vh] p-3 bg-white lg:max-h-full">
+      <h2 className="text-2xl lg:text-4xl font-light">SeatHelp Queue </h2>
+      <p className="text-gray-500 max-w-[70%]">
         A live help queue — where help comes in due time
       </p>
-      <div className="flex gap-2 items-center mt-6 flex-col max-h-117.5 overflow-auto md:overflow-hidden md:flex-row scrollbar-hide">
+      <div className="flex gap-2 items-center max-h-[calc(100vh-140px)] lg:h-[84%] mt-6 flex-col lg:max-h-117.5 overflow-auto md:overflow-hidden md:flex-row scrollbar-hide">
         {/* Left Active/Current Queue */}
         <div className="h-full self-stretch flex-1 relative mb-15 lg:mb-0">
           <div className="h-8.75 ps-3">
