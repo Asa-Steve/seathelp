@@ -25,7 +25,7 @@ const HelperCard = ({ data, position }) => {
       <ItemContent>
         <div className="absolute -right-2.5 -top-3 w-8.75 h-8.75 flex items-center justify-center">
           <Icon icon="mynaui:badge-solid" className=" size-8 text-yellow-500" />
-          <span className="z-300 absolute w-3.75 h-3.75 flex justify-center items-center text-shadow-2xs">
+          <span className="z-20 absolute w-3.75 h-3.75 flex justify-center items-center text-shadow-2xs">
             {position}
           </span>
         </div>
@@ -37,7 +37,7 @@ const HelperCard = ({ data, position }) => {
             "line-clamp-0 text-start flex justify-between items-center flex-wrap"
           }
         >
-          <div className="flex w-fit">
+          <span className="flex w-fit">
             {Array.from({ length: data?.rating ?? 0 })?.map((_, idx) => (
               <StarIcon key={idx} filled={true} h={12} w={12} strk={1} />
             ))}
@@ -45,7 +45,7 @@ const HelperCard = ({ data, position }) => {
               Array.from({ length: 5 - (data?.rating ?? 5) })?.map((_, idx) => (
                 <StarIcon key={idx} h={12} w={12} strk={1} />
               ))}
-          </div>
+          </span>
           <span className="text-gray-500 italic">
             {data?.totalResolved} resolved cases
           </span>

@@ -5,7 +5,7 @@ const Tags = ({ createdAt, status, Uid, Hid, style, size = 10 }) => {
     <div className="flex gap-2 absolute" style={style ? style : {}}>
       {createdAt && (
         <span
-          className="bg-gray-400 px-2 py-0.5 font-bold text-white rounded-lg text-shadow-2xs"
+          className="bg-gray-400 px-2 h-fit lg:py-0.5 font-bold text-white rounded-lg text-shadow-2xs"
           style={{ fontSize: `${size}px` }}
         >
           {formatDistanceToNow(new Date(createdAt), {
@@ -16,7 +16,7 @@ const Tags = ({ createdAt, status, Uid, Hid, style, size = 10 }) => {
       )}
       {status === "in-progress" && Hid && (
         <p
-          className="bg-blue-400 px-2 py-0.5 uppercase font-bold text-white rounded-lg text-shadow-2xs"
+          className="bg-blue-400 px-2 h-fit lg:py-0.5 uppercase font-bold text-white rounded-lg text-shadow-2xs"
           style={{ fontSize: `${size}px` }}
         >
           hId: {Hid}
@@ -25,7 +25,7 @@ const Tags = ({ createdAt, status, Uid, Hid, style, size = 10 }) => {
       {status === "open" && Uid && (
         <p
           className={
-            "bg-green-600 px-2 py-0.5 uppercase font-bold text-white rounded-lg text-shadow-2xs"
+            "bg-green-600 px-2 h-fit lg:py-0.5 uppercase font-bold text-white rounded-lg text-shadow-2xs"
           }
           style={{ fontSize: `${size}px` }}
         >
