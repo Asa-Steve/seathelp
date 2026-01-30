@@ -184,7 +184,7 @@ const waitingList = [
 const Queue = () => {
   return (
     <div className="h-full lg:h-[97vh] p-3 bg-white lg:max-h-full">
-      <h2 className="text-2xl lg:text-4xl font-light">SeatHelp Queue </h2>
+      <h2 className="text-xl md:text-2xl lg:text-4xl font-light">SeatHelp Queue </h2>
       <p className="text-gray-500 max-w-[70%]">
         A live help queue — where help comes in due time
       </p>

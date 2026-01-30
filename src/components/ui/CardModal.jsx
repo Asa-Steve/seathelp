@@ -29,7 +29,7 @@ export function CardModal({
       {/* 👇 THIS is what adds the blur */}
       <DialogOverlay className="backdrop-blur-sm bg-black/40" />
 
-      <DialogContent showCloseButton={false} className="bg-white">
+      <DialogContent showCloseButton={false} className="bg-white border-0">
         <Tags
           createdAt={data?.createdAt ?? null}
           status={data?.status}

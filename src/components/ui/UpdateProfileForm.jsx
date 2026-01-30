@@ -31,7 +31,7 @@ const UpdateProfileForm = ({ userData }) => {
   );
 
   return (
-    <div className="max-h-125 overflow-auto scrollbar-hide md:w-fit md:min-w-[50vw] min-w-[70vw] w-[80vw]">
+    <div className="max-h-[70vh] overflow-auto scrollbar-hide md:w-fit md:min-w-[70vw] lg:min-w-[40vw] w-[80vw]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="overflow-auto h-full scrollbar-hide flex flex-col gap-2"
@@ -65,8 +65,8 @@ const UpdateProfileForm = ({ userData }) => {
           name="img"
           control={control}
           rules={{ required: "Please select a photo" }}
-          render={({ field, fieldState }) => (
-            <>
+          render={({ field }) => (
+            <FormRow rule={{ name: "img" }} hasErr={errors} hasInput={false}>
               <input
                 type="file"
                 onChange={(e) => field.onChange(e.target.files[0] ?? null)}
@@ -74,12 +74,7 @@ const UpdateProfileForm = ({ userData }) => {
                 hidden
                 ref={imgRef}
               />
-              {fieldState.error && (
-                <p className="text-sm text-red-500 w-full">
-                  {fieldState.error.message}
-                </p>
-              )}
-            </>
+            </FormRow>
           )}
         />
 
@@ -113,35 +108,41 @@ const UpdateProfileForm = ({ userData }) => {
             name="preference"
             control={control}
             rules={{ required: "Please select a preference" }}
-            render={({ field, fieldState }) => (
-              <>
-                <RadioGroup
-                  value={field.value}
-                  onValueChange={field.onChange}
-                  className="space-y-2"
-                >
-                  <div className="flex gap-3 gap-y-1 flex-wrap lg:h-8.75">
-                    <span className="flex font-light items-center gap-3 md:p-1">
+            render={({ field }) => (
+              <FormRow
+                rule={{ name: "preference" }}
+                hasErr={errors}
+                hasInput={false}
+              >
+                <RadioGroup value={field.value} onValueChange={field.onChange}>
+                  <div className="flex gap-3 gap-y-1 flex-wrap">
+                    <span className="flex font-light items-center gap-3 text-sm sm:text-lg md:p-1">
                       <label htmlFor="v1">show fullname</label>
-                      <RadioGroupItem value="show_fullName" id="v1" />
+                      <RadioGroupItem
+                        value="show_fullName"
+                        id="v1"
+                        className={"size-3 md:size-4"}
+                      />
                     </span>
-                    <span className="flex font-light items-center gap-3 md:p-1">
+                    <span className="flex font-light items-center gap-3 md:p-1 text-sm sm:text-lg">
                       <label htmlFor="v2">show display name</label>
-                      <RadioGroupItem value="show_displayName" id="v2" />
+                      <RadioGroupItem
+                        value="show_displayName"
+                        id="v2"
+                        className={"size-3 md:size-4"}
+                      />
                     </span>
-                    <span className="flex font-light items-center gap-3 md:p-1">
+                    <span className="flex font-light items-center gap-3 md:p-1 text-sm sm:text-lg">
                       <label htmlFor="v3"> show anonymous</label>
-                      <RadioGroupItem value="show_anonymous" id="v3" />
+                      <RadioGroupItem
+                        value="show_anonymous"
+                        id="v3"
+                        className={"size-3 md:size-4"}
+                      />
                     </span>
                   </div>
                 </RadioGroup>
-
-                {fieldState.error && (
-                  <p className="text-sm text-red-500">
-                    {fieldState.error.message}
-                  </p>
-                )}
-              </>
+              </FormRow>
             )}
           />
         </FormRow>
@@ -149,7 +150,7 @@ const UpdateProfileForm = ({ userData }) => {
           variant="outline"
           size="default"
           className={
-            "bg-green-600 hover:bg-green-700 cursor-pointer text-white mb-4"
+            "bg-green-600 hover:bg-green-700 cursor-pointer w-full sm:w-[40%] me-auto text-white mb-4"
           }
         >
           Save changes

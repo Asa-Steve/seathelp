@@ -63,7 +63,7 @@ const ProfileSettings = () => {
         {/* Right Side  */}
         <div className="flex-1 p-2 flex flex-col gap-2">
           <div className="h-[85%] flex flex-col gap-3">
-            <h2 className="text-2xl font-semibold">Bio</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">Bio</h2>
             <div className="px-4 py-4 min-h-30 bg-gray-50 rounded-lg flex justify-center flex-col gap-2">
               <h3 className="text-xl font-light">
                 <span className="font-light">Full Name :</span>{" "}
@@ -74,7 +74,7 @@ const ProfileSettings = () => {
                 {userData?.displayName}
               </h3>
             </div>
-            <h2 className="text-2xl font-semibold mt-10 md:mt-3 ">
+            <h2 className="text-xl md:text-2xl font-semibold mt-10 md:mt-3 ">
               Preferences
             </h2>
             <div className="px-4 min-h-30 py-4 bg-gray-50 rounded-lg justify-center flex flex-col gap-2">
@@ -112,7 +112,7 @@ const ProfileSettings = () => {
                 <Button
                   variant="outline"
                   className={
-                    "bg-green-600 text-white my-auto cursor-pointer hover:bg-green-700"
+                    "bg-green-600 text-white sm:w-[40%] my-auto cursor-pointer hover:bg-green-700"
                   }
                 >
                   Update Profile
@@ -121,10 +121,10 @@ const ProfileSettings = () => {
               <DialogOverlay className="backdrop-blur-sm bg-black/40" />
               <DialogContent
                 showCloseButton={false}
-                className="bg-white w-fit sm:max-w-none"
+                className="bg-white w-fit md:w-fit sm:max-w-none border-0"
                 aria-describedby={undefined}
               >
-                <DialogTitle className={"flex items-center gap-3"}>
+                <DialogTitle className={"text-xl md:text-2xl font-light"}>
                   Update Profile
                 </DialogTitle>
                 <UpdateProfileForm userData={userData} />

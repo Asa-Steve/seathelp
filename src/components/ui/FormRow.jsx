@@ -3,12 +3,13 @@ const FormRow = ({
   hasErr,
   children,
   rule,
+  styles,
   defaultVal = "",
   type = "text",
   hasInput = true,
 }) => {
   return (
-    <div className="flex flex-col">
+    <div className={"flex flex-col " + styles}>
       {label && (
         <label className="mb-1 font-light" htmlFor={label}>
           {label}
@@ -25,7 +26,7 @@ const FormRow = ({
       )}
       {children}
       {hasErr && hasErr[rule?.name] && (
-        <span className="text-sm text-red-500">
+        <span className="text-sm text-red-800">
           {hasErr[rule?.name]?.message}
         </span>
       )}
