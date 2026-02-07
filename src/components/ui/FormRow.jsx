@@ -9,7 +9,7 @@ const FormRow = ({
   hasInput = true,
 }) => {
   return (
-    <div className={"flex flex-col " + styles}>
+    <div className={"flex flex-col relative " + styles}>
       {label && (
         <label className="mb-1 font-light" htmlFor={label}>
           {label}

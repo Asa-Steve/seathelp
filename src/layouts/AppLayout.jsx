@@ -11,10 +11,14 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import RequestHelpForm from "@/components/ui/RequestHelpForm";
+import LoginForm from "@/components/ui/LoginForm";
+import Auth from "@/components/ui/Auth";
 
 const AppLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+
+  const isLoggedIn = false; // Replace with actual authentication logic
 
   useEffect(() => {
     //Close menu fnc
@@ -142,10 +146,35 @@ const AppLayout = () => {
                 <RequestHelpForm />
               </DialogContent>
             </Dialog>
-            <Button className=" bg-red-700 hover:bg-red-800 text-white rounded-lg p-2 lg:p-2 cursor-pointer flex gap-2 items-center">
-              <Icon icon="solar:logout-2-outline" width="25" height="25" />
-              Logout
-            </Button>
+            <>
+              {isLoggedIn ? (
+                <Button className="bg-red-700 hover:bg-red-800 text-white rounded-lg p-2 lg:p-2 cursor-pointer flex gap-2 items-center">
+                  <Icon icon="solar:logout-2-outline" width="25" height="25" />
+                  Logout
+                </Button>
+              ) : (
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="bg-blue-400 hover:bg-blue-500 text-white rounded-lg p-2 lg:p-2 cursor-pointer flex gap-2 items-center">
+                      <Icon
+                        icon="solar:login-2-outline"
+                        width="25"
+                        height="25"
+                      />
+                      Log in / Register
+                    </Button>
+                  </DialogTrigger>
+                  <DialogOverlay className="backdrop-blur-sm bg-black/40" />
+                  <DialogContent
+                    showCloseButton={false}
+                    className="bg-white border-0 w-lg sm:max-w-none z-400 min-w-[40vw] min-h-50"
+                    aria-describedby={undefined}
+                  >
+                    <Auth />
+                  </DialogContent>
+                </Dialog>
+              )}
+            </>
           </div>
         </aside>
         <main className="bg-gray-100 lg:col-span-8 p-1 relative h-full lg:h-[97%]">

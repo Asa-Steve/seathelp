@@ -27,8 +27,8 @@ const RequestHelpForm = () => {
           null,
           "subject cannot be blank",
         )}
-        label="Subject"
         hasErr={errors}
+        label="Subject"
       />
       <FormRow
         styles={"flex-1"}
